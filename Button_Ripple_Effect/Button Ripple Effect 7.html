@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Button Ripple Effect 7</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center; }
+
+.wrapper { border-radius:15px;
+           padding:20px 30px;
+          box-shadow:4px 4px 15px rgba(100,100,100,1);
+          text-align:center; }
+
+
+h2 { font-family:"Arial";
+     font-size:35px;
+     font-weight:500;
+     background:linear-gradient(180deg,lime,royalblue);
+     -webkit-background-clip:text;
+     color:transparent; }
+
+p { font-family:"Consolas";
+     font-weight:500;
+     font-size:25px;
+     margin:15px 0 25px;
+     background:linear-gradient(180deg,orange,red);
+     -webkit-background-clip:text;
+     color:transparent; }
+
+.buttons { display:flex; }
+
+.buttons a { width:225px;
+             height:100px;
+             border-radius:100px;
+             background:red;
+             text-align:center;
+             line-height:100px;
+             text-decoration:none;
+             color:white;
+             font-size:30px;
+             font-family:"Calibri";
+             font-weight:700;
+             position:relative;
+             overflow:hidden; }
+
+a:first-child { margin-right:15px;
+                background:linear-gradient(90deg,lime,green);
+                 }
+a:last-child { margin-left:15px;
+               background:linear-gradient(90deg,orange,gold); }
+
+
+a span { position:absolute;
+          transform:translate(-50%,-50%);
+          border-radius:50%;
+          animation:animate .5s linear;
+          background:rgba(150,150,150,1); }
+
+@keyframes animate { from { width:0; height:0; opacity:1; }
+                     to { width:500px; height:500px; opacity:0; } }
+
+
+
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class = "wrapper">
+     <h2> Button Ripple </h2>
+     <p> by html, css & javascript </p>
+
+<div class = "buttons">
+	<a href = "#"> Click Me </a>
+	<a href = "#"> Click Me </a>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	
+var buttons = document.querySelectorAll("a");
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",e =>{
+
+var ripple = document.createElement("span");
+button.appendChild(ripple);
+
+var x = e.clientX - e.target.offsetLeft;
+var y = e.clientY - e.target.offsetTop;
+
+ripple.style.top = y + "px";
+ripple.style.left = x + "px";
+
+
+})
+
+
+})
+
+
+
+
+</script>
+
+
+</body>
+</html>

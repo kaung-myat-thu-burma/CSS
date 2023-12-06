@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Keyword this special</title>
+
+<style type="text/css">
+	
+body { 
+       margin:0;
+       height:100vh;
+       overflow:hidden; }
+
+@keyframes animate { to { opacity:0;transform:translate(-25%,-25%) } }
+
+
+</style>
+
+</head>
+<body>
+
+
+<script type="text/javascript">
+	
+
+var body = document.querySelector("body");
+
+body.addEventListener("mousemove",(e)=>{
+
+var div1 = document.createElement("div");
+body.appendChild(div1);
+var div2 = document.createElement("div");
+body.appendChild(div2);
+var div3 = document.createElement("div");
+body.appendChild(div3);
+var div4 = document.createElement("div");
+body.appendChild(div4);
+var div5 = document.createElement("div");
+body.appendChild(div5);
+var div6 = document.createElement("div");
+body.appendChild(div6);
+var div7 = document.createElement("div");
+body.appendChild(div7);
+var div8 = document.createElement("div");
+body.appendChild(div8);
+var div9 = document.createElement("div");
+body.appendChild(div9);
+var div10 = document.createElement("div");
+body.appendChild(div10);
+var div11 = document.createElement("div");
+body.appendChild(div11);
+var div12 = document.createElement("div");
+body.appendChild(div12);
+var div13 = document.createElement("div");
+body.appendChild(div3);
+var div14 = document.createElement("div");
+body.appendChild(div14);
+var div15 = document.createElement("div");
+body.appendChild(div15);
+
+function key(){
+
+
+var wh = Math.round(Math.random()*150);
+if(wh < 20) { wh = 20;}
+var r  = Math.round(Math.random()*255);
+var g  = Math.round(Math.random()*255);
+var b  = Math.round(Math.random()*255);
+var trans = [-25,25,-50,50,-75,75];
+var x  = trans[Math.round(Math.random()* trans.length)];
+var y  = trans[Math.round(Math.random()* trans.length)];
+
+
+this.style.position   = "absolute";
+this.style.width      = wh + "px";
+this.style.height     = wh + "px";
+this.style.background = 'rgba('+r+','+g+','+b+',.8)';
+this.style.top        = e.clientY + "px";
+this.style.left       = e.clientX + "px";
+this.style.transform  = 'translate('+x+'%,'+y+'%)';
+this.style.animation  = "animate 2s linear";
+this.style.borderRadius = "50%";
+
+
+setTimeout(()=>{this.style.width = "0"; this.style.height = "0";},
+
+Math.round(Math.random()*2000)
+	)
+
+}
+
+div1.style.transform  = "translate(-50%,-50%)";
+
+
+key.bind(div1)();
+key.bind(div2)();
+key.bind(div3)();
+key.bind(div4)();
+key.bind(div5)();
+key.bind(div6)();
+key.bind(div7)();
+key.bind(div8)();
+key.bind(div9)();
+key.bind(div10)();
+key.bind(div11)();
+key.bind(div12)();
+key.bind(div13)();
+key.bind(div14)();
+key.bind(div15)();
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Button Ripple Effect</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       font-family:"Calibri"; }
+
+.wrapper { padding:20px 30px;
+           background:white;
+           box-shadow:1px 1px 15px rgba(0,0,0,.5);
+           text-align: center; }
+
+.wrapper .text { font-size:35px;
+                font-weight:600; }
+
+.wrapper p { font-size:20px;
+             font-weight:600; }
+
+
+.wrapper .btns { 
+                   display:flex;
+                   margin:30px 0 20px;
+                    }
+
+.wrapper .btns a { width:200px;
+                    height:60px;
+                    margin:0 20px;
+                    background:red;
+                    color: white;
+                    font-size: 30px;
+                    line-height: 60px;
+                    text-decoration: none;
+                    border-radius:60px;
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    font-weight: 600;
+                    overflow:hidden;
+                    position:relative;
+                    z-index:777; }
+
+.wrapper .btns a:first-child { background:linear-gradient(-90deg,#f5ce62,#e85a29) }
+
+.wrapper .btns a:last-child { background:linear-gradient(90deg,#0162c8,#55e7fc) }
+
+
+.wrapper .btns a > span { width:500px;
+       height:500px;
+       background:white; 
+       position: absolute;
+       transform: translate(-50%,-50%);
+       animation: animate .4s linear infinite;
+       border-radius: 100%;}
+
+@keyframes animate { 0% { width:0;
+                          height:0;
+                          opacity:.6; } 
+                          100%{ width:500px;
+                          height:500px;
+                          opacity:0; }}
+
+
+</style>
+
+
+</head>
+<body>
+
+
+<div class = "wrapper">
+	<div class = "text">Button Ripple Effect </div>
+	<p> Using HTML,CSS and Javascript.</p>
+
+<div class = "btns">
+	<a href = "#"> Click Me </a>
+	<a href = "#"> Click Me </a>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	
+
+var buttons = document.querySelectorAll("a");
+
+buttons.forEach((button)=>{
+button.onclick = function (e){
+var x = e.clientX - e.target.offsetLeft;  
+var y = e.clientY - e.target.offsetTop;
+
+var ripple  = document.createElement("span");
+ripple.style.left = `${x}px`;
+ripple.style.top = `${y}px`;
+
+this.appendChild(ripple);
+console.log( e.target.offsetLeft  + " : " +  e.target.offsetTop);
+
+setTimeout(()=>{ripple.remove()
+
+},400)
+}
+
+
+})
+
+
+
+</script>
+
+
+
+</body>
+</html>

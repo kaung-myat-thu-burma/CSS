@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Button Ripple Effect 3</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center; 
+   }
+
+.container { padding:10px 15px;
+             box-shadow:2px 0 15px rgba(0,0,0,.5);
+             text-align:center; }
+
+.container .text { font-family:"Calibri";
+                   font-size:35px;
+                   font-weight: 600;
+                   margin:10px 0 ;
+                    }
+.container p { font-family:"Consolas";
+               font-size:20px;
+               font-weight:25px;
+               margin:0 0 10px; }
+
+
+.container .btns { display:flex;
+                    }
+
+.container .btns a { width:200px;
+                     height:80px;
+                     background:blue;
+                     color:white;
+                     text-decoration:none;
+                     text-transform: uppercase;
+                     line-height:80px; 
+                     margin: 15px 10px 20px;
+                     font-family: "Segoe Ui";                     border-radius: 80px;
+                     z-index: 777;
+                     font-size: 20px;
+                     overflow: hidden;}
+
+.container .btns a:first-child { background:linear-gradient(90deg,red,orange); }
+.container .btns a:last-child { background:linear-gradient(-90deg,royalblue,blue); }
+
+.container .btns a > span { width:20px;
+               height:20px;
+               position:absolute;
+               background:red; }
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class = "container">
+	<div class = "text"> Button Ripple Effect </div>
+	<p> by HTML, CSS & Javascript </p>
+	<div class = "btns">
+		<a href = "#"> Click Me </a>
+		<a href = "#"> Click Me </a>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+    
+
+
+var buttons = document.querySelectorAll("a");
+
+buttons.forEach((button)=>{
+
+button.onclick = function(e) {
+var x = e.clientX;
+var y = e.clientY;
+button.style.overflow = "hidden"
+var ripple = document.createElement("span");
+ripple.style.left =  x + "px";
+ripple.style.top  = y + "px";
+ripple.classList.add("span");
+button.appendChild(ripple);
+
+}
+
+})
+
+</script>
+
+</body>
+</html>

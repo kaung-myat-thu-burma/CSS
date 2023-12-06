@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Button Ripple Effect 2</title>
+
+<style type="text/css">
+	
+* { margin:0;
+    padding:0;
+    font-family:"Calibri";
+    user-select: none; }
+
+body { height:100vh;
+       display:flex;
+       justify-content:center;
+       align-items:center; }
+
+.content {  padding: 20px 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(25,25,25,.5);
+            text-align: center;}
+
+
+.text { font-size:35px;
+        font-weight: 700;
+        background:linear-gradient(90deg,darkblue,purple);
+        display:inline-block;
+        -webkit-background-clip:text;
+        color:transparent; }
+
+.content p { font-size:20px;
+             font-weight:700;
+             background:linear-gradient(90deg,royalblue,blue);
+             color:transparent;
+             -webkit-background-clip:text; }
+
+.content .btns { margin:30px 0 20px ;
+                 display:flex; }
+
+.content .btns a { width:225px;
+                   height:75px;
+                   background:red;
+                   margin:0 20px;
+                   border-radius:75px;
+                   text-align:center;
+                   line-height:75px;
+                   text-decoration:none;
+                   color:white;
+                   font-weight: 300;
+                   text-transform:uppercase;
+                   font-size:30px; 
+                   overflow: hidden;}
+
+
+
+.content .btns a:first-child { background:linear-gradient(90deg,orangered,rgba(255,255,00,.8)); }
+.content .btns a:last-child { background:linear-gradient(-90deg,royalblue,rgba(00,00,255,.5)); }
+
+.content .btns a  span { width:500px;
+                        height:500px;
+                        background:rgba(200,200,200,1);
+                        border-radius:100%;
+                        transform:translate(-50%,-50%);
+                        position: absolute;
+                        animation:animate .4s linear infinite; }
+
+
+
+@keyframes animate { 0%{ width:0 ; height:0; opacity:.6; }
+                     100%{ width:500px; height:500px ; opacity:0; } }
+
+</style>
+
+</head>
+<body>
+
+<div class = "content">
+	<div class = "text"> Button Ripple Effect </div>
+	<p> using HTML , CSS and Javascript </p>
+
+<div class = "btns">
+	<a href = "#"> Click me </a>
+	<a href = "#"> Click me </a>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+	
+
+var buttons = document.querySelectorAll("a");
+
+buttons.forEach((button)=>{
+
+button.onclick = function(e){
+
+var x = e.clientX - e.target.clientLeft;
+var y = e.clientY - e.target.clientTop;
+
+
+var ripple = document.createElement("span");
+ripple.style.left = x + 'px';
+ripple.style.top  = y + 'px';
+this.appendChild(ripple);
+this.style.overflow = "hidden";
+
+setTimeout(()=>{ ripple.remove()},400)
+ }
+})
+
+
+
+</script>
+
+
+
+</body>
+</html>

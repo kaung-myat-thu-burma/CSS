@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Image Slider with Control</title>
+
+<link rel="stylesheet" type="text/css" href="file:///C:/Users/USER/Desktop/Needs/fontawesome-free-6.2.0-web/css/all.css">
+
+<style type="text/css">
+	
+* { margin: 0;
+    padding: 0; }
+
+
+body { height:100vh;
+       display:flex;
+       justify-content: center;
+       align-items:center; }
+
+.content { width:750px;
+           height:400px;
+           position: relative;
+           overflow: hidden; }
+
+
+.content .images { width:100%;
+                   height:100%; }
+
+
+.content .images img { width:100%;
+                        height:100%; }
+
+.btm-sliders { position:absolute;
+               bottom:20px;
+               left:50%;
+               transform:translateX(-50%);
+               display:flex;
+               justify-content: center;
+               align-items: center; }
+
+
+.btm-sliders span { width:50px;
+                    height:15px;
+                    border: 2px solid white;
+                    margin:0 3px; }
+
+.btm-sliders span:hover { background:white; }
+
+.slide { position:absolute;
+         top:50%;
+         transform:translateY(-50%);
+         width:45px;
+         height:45px;
+         border:2px solid white;
+         color:white;
+         font-size:40px;
+         text-align: center;
+         line-height:45px;
+         font-weight:100;
+         background:rgba(255,255,255,.2); }
+
+
+.right { right:0; }
+
+.left { left:0; }
+
+</style>
+
+</head>
+<body>
+
+<div class = "content">
+<div class = "images">
+<img src="img.jpg">
+<img src = "img2.jpg">
+<img src = "img3.jpg">
+<img src = "img4.jpg">
+<img src = "img5.jpg">
+</div>
+
+<div class = "slide left" onclick="side_slide(-1)">
+<span class = "fas fa-angle-left"></span>
+</div>
+
+<div class = "slide right" onclick = "side_slide(1)">
+<span class = "fas fa-angle-right"></span>
+</div>
+
+
+<div class = "btm-sliders">
+<span onclick = "btm_slide(0)"></span>
+<span onclick = "btm_slide(1)"></span>
+<span onclick = "btm_slide(2)"></span>
+<span onclick = "btm_slide(3)"></span>
+<span onclick = "btm_slide(4)"></span>
+</div>
+
+</div>
+
+
+
+<script type="text/javascript">
+var index = 0;
+function  btm_slide(e){ show_Img(index = e)}
+function side_slide(e){ show_Img(index += e)}
+
+function show_Img(e){
+
+var imgs = document.querySelectorAll("img");
+var btms = document.querySelectorAll(".btm-sliders span");
+
+
+if(index < 0) { index = imgs.length-1}
+if(index> imgs.length-1){ index =0}
+
+for(var i = 0; i<imgs.length;i++){
+
+imgs[i].style.display="none";
+
+}
+console.log(index)
+for(var x = 0; x <btms.length; x++){
+btms[x].style.background = "red";
+
+}
+
+btms[index].style.background = "white";
+imgs[index].style.display = "block";
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

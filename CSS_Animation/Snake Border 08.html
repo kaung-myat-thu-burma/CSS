@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Snake Border 08</title>
+
+<style type="text/css">
+	
+body { margin:0; padding:0 }
+
+.container { background:linear-gradient(45deg,red,orangered,red);
+             width:100%;
+             height:100vh;
+             display:flex;
+             justify-content:center;
+             align-items:center; }
+.snake  { width:250px;
+         height:250px;
+         background:transparent;
+         overflow: hidden;
+         position:relative; 
+         animation: rotation 15s linear infinite;}
+
+.snake span { position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+              background:transparent; }
+
+.snake span:before { background:transparent;
+                     position:absolute;
+                     top:0;
+                     left:0;
+                     width:100%;
+                     height:100%;
+                     border-top:15px solid white;
+                     content:'';
+                     animation:animate 2s linear infinite; }
+
+.snake span:nth-child(1) { transform:rotate(0deg); }
+.snake span:nth-child(2) { transform:rotate(90deg); }
+.snake span:nth-child(3) { transform:rotate(180deg); }
+.snake span:nth-child(4) { transform:rotate(270deg); }
+
+.snake span:nth-child(1):before { animation-delay:0s; }
+.snake span:nth-child(2):before { animation-delay:.5s; }
+.snake span:nth-child(3):before { animation-delay:1s; }
+.snake span:nth-child(4):before { animation-delay:1.5s; }
+
+@keyframes rotation { 0% { transform:rotate(0deg); }
+                    100% { transform:rotate(360deg); } }
+
+
+@keyframes animate  { 0% { left:-100% }
+                     50%,100%{ left:100% } }
+
+</style>
+
+</head>
+<body>
+
+<div class = "container">
+
+<div class = "snake">
+
+<span> </span>
+<span> </span>
+<span> </span>
+<span> </span>
+
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
